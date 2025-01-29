@@ -1,0 +1,11 @@
+name: Deploy to Streamlit
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: streamlit/streamlit-action@main
+        with:
+          cloudToken: ${{ secrets.STREAMLIT_TOKEN }}
+          mainModule: "app/main.py"
